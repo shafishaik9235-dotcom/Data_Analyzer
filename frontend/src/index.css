@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #F7F5F0;
+  --color-surface: #FFFFFF;
+  --color-surface-subtle: #F0EDF9;
+  
+  --color-accent: #8B7BE8;
+  --color-accent-hover: #7564D5;
+  --color-accent-light: #ECE8FC;
+  
+  --color-mint: #DDF2E7;
+  --color-mint-dark: #286A50;
+  
+  --color-coral: #FBE7DC;
+  --color-coral-dark: #A95837;
+  
+  --color-text-main: #28263A;
+  --color-text-muted: #777487;
+  --color-border-subtle: #E8E4ED;
+  --color-gridline: #ECEAF1;
+  --color-danger: #C54D58;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root {
+  --canvas: #F7F5F0;
+  --surface: #FFFFFF;
+  --surface-subtle: #F0EDF9;
+  --accent: #8B7BE8;
+  --accent-hover: #7564D5;
+  --mint: #DDF2E7;
+  --mint-dark: #286A50;
+  --coral: #FBE7DC;
+  --coral-dark: #A95837;
+  --text-main: #28263A;
+  --text-muted: #777487;
+  --border: #E8E4ED;
+  --gridline: #ECEAF1;
+  --danger: #C54D58;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--canvas);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom soft scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D3E0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BFB7CB;
+}
+
+/* Hide scrollbar for clean horizontal navbar tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle continuous gradient flow for top navbar accent line */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: gradient-flow 6s ease infinite;
+}
+
+/* Glassmorphism & Modern SaaS Polish */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 228, 237, 0.8);
+}
+
+.glow-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(139, 123, 232, 0.12), 0 4px 12px -2px rgba(40, 38, 58, 0.04);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Print styling for analytical reports */
+@media print {
+  aside, nav, .no-print {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+  }
+  .print-page {
+    page-break-after: always;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
