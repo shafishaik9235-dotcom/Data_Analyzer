@@ -46,3 +46,4 @@ databases:
   - name: data-analyzer-db
     plan: free
     region: oregon
+
